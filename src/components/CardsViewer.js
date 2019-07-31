@@ -30,7 +30,8 @@ class CardsViewer extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		searchResult: state.search.searchResult
+		searchResult: state.search.searchResult,
+		deck: state.deck.deck
 	}
 }
 

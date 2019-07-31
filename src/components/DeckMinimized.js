@@ -1,21 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Card from './Card'
 
 class DeckMinimized extends React.Component {
 	render() {
-		console.log(this.props.deck)
 		return (
 			<div>
 				<h4>Deck preview</h4>
 
 				<div className="playingCards">
-					{this.props.deck.length > 0 ? (
+					{this.props.total > 0 ? (
 						<ul className="deck">
-							{this.props.deck.map((card, idx) => (
+							{[...Array(this.props.total)].map((card, idx) => (
 								<li key={idx}>
-									<div class="card mtgBack"></div>
+									<div className="card mtgBack"></div>
 								</li>
 							))}
 						</ul>
@@ -32,12 +30,12 @@ class DeckMinimized extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		deck: state.deck.deck
+		total: state.deck.total
 	}
 }
 
 DeckMinimized.defaultProps = {
-	deck: []
+	total: 0
 }
 
 export default connect(mapStateToProps)(DeckMinimized)

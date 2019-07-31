@@ -13,7 +13,7 @@ export const styles = {
 	},
 	resultsViewer: {
 		width: '90%',
-		height: '300px',
+		height: '250px',
 		overflowY: 'scroll'
 	},
 	cardInline: {

@@ -1,12 +1,10 @@
 import React from 'react'
 import Card from './Card'
-import { styles } from '../styles'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class DeckViewer extends React.Component {
 	render() {
-		console.log(this.props.deck)
 		return (
 			<div>
 				<h4>Deck choosen</h4>
@@ -28,7 +26,6 @@ class DeckViewer extends React.Component {
 }
 
 function mapStateToProps(state) {
-	console.log('DEC VIEWER ', state.deck.deck)
 	return {
 		deck: state.deck.deck
 	}

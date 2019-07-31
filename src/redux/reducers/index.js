@@ -3,6 +3,6 @@ import deck from './deck'
 import search from './search'
 
 export const rootReducer = combineReducers({
-  deck,
-  search
+	deck,
+	search
 })

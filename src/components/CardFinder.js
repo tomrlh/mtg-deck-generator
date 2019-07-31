@@ -5,14 +5,14 @@ import { setSearchResult } from '../redux/actions'
 
 class CardFinder extends React.Component {
 	state = {
-		query: 'archangel',
+		query: '',
 	}
 
 	searchCards = query => {
-		axios.get(`https://api.magicthegathering.io/v1/cards?name=${query}`)
+		console.log('searching...')
+		return axios.get(`https://api.magicthegathering.io/v1/cards?name=${query}`, { headers: { 'Access-Control-Allow-Origin': '*'}})
 		.then(response => {
-			console.log(response.data.cards)
-			this.props.dispatch(setSearchResult(response.data.cards))
+			return response.data.cards
 		})
 		.catch(error => {console.log(error)})
 	}
@@ -29,7 +29,10 @@ class CardFinder extends React.Component {
 					<input 
 						type="button"
 						value="Search"
-						onClick={() => {this.searchCards(this.state.query)}}/>
+						onClick={async () => {
+							let cards = await this.searchCards(this.state.query)
+							this.props.dispatch(setSearchResult(cards))
+						}}/>
 				</div>
 			</div>
 		)

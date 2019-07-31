@@ -11,7 +11,7 @@ class Card extends React.Component {
 	render() {
 		const big = this.props.big ? 'big' : ''
 		return (
-			<a className={'card ' + big} href="javascript:void(0)">
+			<a className={'card ' + big} href="#/">
 				<img
 					style={styles.cardInline}
 					src={this.props.card.imageUrl}
