@@ -10,8 +10,6 @@ class MainView extends React.Component {
 	render() {
 		return (
 			<div>
-				<TypeSelector/>
-
 				<CardFinder/>
 
 				<CardsViewer/>
