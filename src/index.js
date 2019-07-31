@@ -5,11 +5,10 @@ import './index.css'
 import './cards.css'
 import Routes from './components/Routes'
 import * as serviceWorker from './serviceWorker'
-import { Provider } from 'react-redux'
-import { store } from './redux/store'
+import { Provider } from 'unstated'
 
 ReactDOM.render(
-	<Provider store={store}>
+	<Provider>
 		<BrowserRouter>
 			<Routes/>
 		</BrowserRouter>

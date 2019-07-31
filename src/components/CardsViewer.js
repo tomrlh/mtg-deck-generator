@@ -1,42 +1,36 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { styles } from '../styles'
 import Card from './Card'
+import { Subscribe } from 'unstated'
+import SearchContainer from '../unstated/containers/SearchContainer'
 
 class CardsViewer extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h4>Cards found</h4>
-				<div className="playingCards">
-					<div style={styles.resultsViewer}>
-						{this.props.searchResult.length > 0 ? (
-							<div>
-								{this.props.searchResult.map((card, idx) => (
-									<Card key={idx} card={card} hasAdd={true}/>
-								))}
+			<Subscribe to={[SearchContainer]}>
+				{searchState => (
+					<div>
+						<h4>Cards found</h4>
+						<div className="playingCards">
+							<div style={styles.resultsViewer}>
+								{searchState.state.searchResult.length > 0 ? (
+									<div>
+										{searchState.state.searchResult.map((card, idx) => (
+											<Card key={idx} card={card} hasAdd={true}/>
+										))}
+									</div>
+								)
+								: (
+									<p>no cards found</p>
+								)}
 							</div>
-						)
-						: (
-							<p>no cards found</p>
-						)}
+						</div>
 					</div>
-				</div>
-			</div>
+				)}
+			</Subscribe>
 		)
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		searchResult: state.search.searchResult,
-		deck: state.deck.deck
-	}
-}
-
-CardsViewer.defaultProps = {
-	searchResult: []
-}
-
-export default connect(mapStateToProps)(CardsViewer)
+export default CardsViewer
