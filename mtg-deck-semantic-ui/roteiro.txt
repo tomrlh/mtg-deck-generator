@@ -1,0 +1,39 @@
+Comandos executados:
+
+- npx create-react-app mtg-deck-semantic-ui
+
+- npm install semantic-ui-react
+
+- npm install semantic-ui-css
+
+- adicionado import 'semantic-ui-css/semantic.min.css' ao App.js
+
+
+Componentes a criar:
+
+- campo de pesquisa
+    - buscar exemplo
+    - converter para classe
+    - definir local state
+    - onClick no icon, onChange e value no componente
+    - criar o método de busca
+    - passar resultado para this.props.setCardsFound(resultado)
+
+
+- visualizador de cartas
+    - buscar exemplo
+    - converter para classe
+    - definir conditional rendering para quando não houverem cartas
+
+- carta
+    - buscar exemplo e mesclar com botões
+    - converter para classeW
+    - definir o extra, controle dos botões
+
+
+- controles de adicionar e remover ao deck
+    - implementar add e remove card no App
+    - passá-los como props para o card viewer e depois para o card mini
+
+- visualizador do deck
+    - componente igual ao deck viewer, porém com 3 colunas
