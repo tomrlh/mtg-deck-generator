@@ -5,15 +5,17 @@ import App from './App';
 import DeckViewer from './components/DeckViewer';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Provider } from 'unstated'
 
 ReactDOM.render(
-    
-<BrowserRouter>
-    <Switch>
-        <Route path="/" exact={true} component={App} />
-        <Route path="/deck-viewer" component={DeckViewer} />
-    </Switch>
-</ BrowserRouter>
+<Provider>
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path="/deck-viewer" component={DeckViewer} />
+        </Switch>
+    </ BrowserRouter>
+</Provider>
 , document.getElementById('root'));
 
 
